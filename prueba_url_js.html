@@ -1,0 +1,88 @@
+ <html>
+<head>
+<title> Prueba JS </title>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<script type='text/javascript'>
+function FacebookShare() {
+	var faceburl="http://www.facebook.com/sharer.php?u=";
+	var posturl = document.URL;
+	var url = faceburl.concat(posturl);
+	window.open(url,'facebook', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+	return false;
+}
+function GooglePlusShare() {
+    	var gooplusurl = "https://plus.google.com/share?url=";
+	var posturl = window.location.href;
+	var url = gooplusurl.concat(posturl);
+	window.open(url,'gooplus', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+	return false;
+}
+function TwitterShare() {
+	var tweeturl="http://twitter.com/home?status=Actualmente%20leyendo%20";
+	var posturl = window.location.href;
+	var url = tweeturl.concat(posturl);
+	window.open(url,'twitter', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+	return false;
+}
+
+function GMailShare(){
+
+}
+function MeneameShare() {
+	var meneameurl="http://www.meneame.net/submit.php?url=";
+	var posturl = window.location.href;
+	var url = encodeURI(meneameurl.concat(posturl));
+	window.open(url,'meneame', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+	return false;
+}
+/**
+function TumblrShare(){
+http://www.tumblr.com/share/link?url=[uri encoded URL]&amp;name=[title]&amp;description=[description]
+	var posttitle = document.title
+	var tumblrurl="http://tumblr.com/share?s=&v=3&t=Title&u=";
+	tumblrurl = tumblrurl.replace("Title",posttitle);
+	var posturl = window.location.href;
+	var url = encodeURI(tumblrurl.concat(posturl));
+	window.open(url,'tumblr', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+	return false;
+}
+*/
+function RedditShare(){
+	var redditurl="http://www.reddit.com/submit?url=";
+	var posturl = window.location.href;
+	var url = redditurl.concat(posturl);
+	window.open(url,'reddit', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+	return false;
+}
+</script>
+</head>
+<body>
+<div class="btn-group">
+	<a class="btn btn-default btn-lg" href="#" id="facebook-share" onclick="return FacebookShare()" title="Compartir en Facebook">
+		<i class="fa fa-facebook fa-lg fb"></i>
+	</a>
+Twitter
+<a href="#" id="twitter-share" onclick="return TwitterShare()">
+<img src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Compartir en Google+"/>
+</a>
+Google+
+<a href="#" id="gooplus-share" onclick="return GooglePlusShare()">
+<img src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Compartir en Google+"/>
+</a>
+Meneame
+<a href="#" id="meneame-share" onclick="return MeneameShare()">
+<img src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Compartir en Meneame"/>
+</a>
+<!--
+Tumblr
+<a href="#" id="tumblr-share" onclick="return TumblrShare()">
+<img src="http://platform.tumblr.com/v1/share_4.png" alt="Compartir en Tumblr"/>
+</a>
+-->
+Reddit
+<a href="#" id="reddit-share" onclick="return RedditShare()">
+<img src="https://www.reddit.com/static/spreddit5.gif" alt="Compartir en Reddit"/>
+</a>
+</body>
+</html> 
