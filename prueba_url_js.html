@@ -1,27 +1,39 @@
- <html>
+<html>
 <head>
+
 <title> Prueba JS </title>
-  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<style>
+i.fb,       span.fb{     color: #3b5998; }
+i.tw,       span.tw{     color: #00aced; }
+i.google,   span.google{ color: #dd4b39; }
+i.tumblr,   span.tumblr{ color: #34465e; }
+i.reddit,   span.reddit{ color: #ff2304; }
+i.linkin,   span.linkin{ color: #007bb6; }
+i.meneame,  span.meneame{color: #fe6604; }
+i.pinterest,span.pinterest{color: #cb2027;}
+
+</style>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
 <script type='text/javascript'>
 function FacebookShare() {
-	var faceburl="http://www.facebook.com/sharer.php?u=";
+	var faceburl="https://www.facebook.com/sharer.php?u=";
 	var posturl = document.URL;
-	var url = faceburl.concat(posturl);
+	var url = encodeURI(faceburl.concat(posturl));
 	window.open(url,'facebook', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 	return false;
 }
 function GooglePlusShare() {
     	var gooplusurl = "https://plus.google.com/share?url=";
 	var posturl = window.location.href;
-	var url = gooplusurl.concat(posturl);
-	window.open(url,'gooplus', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+	var url = encodeURI(gooplusurl.concat(posturl));
+	window.open(url,'googleplus', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 	return false;
 }
 function TwitterShare() {
-	var tweeturl="http://twitter.com/home?status=Actualmente%20leyendo%20";
+	var tweeturl="https://twitter.com/home?status=Actualmente%20leyendo%20";
 	var posturl = window.location.href;
-	var url = tweeturl.concat(posturl);
+	var url = encodeURI(tweeturl.concat(posturl));
 	window.open(url,'twitter', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 	return false;
 }
@@ -36,22 +48,21 @@ function MeneameShare() {
 	window.open(url,'meneame', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 	return false;
 }
-/**
 function TumblrShare(){
-http://www.tumblr.com/share/link?url=[uri encoded URL]&amp;name=[title]&amp;description=[description]
-	var posttitle = document.title
-	var tumblrurl="http://tumblr.com/share?s=&v=3&t=Title&u=";
-	tumblrurl = tumblrurl.replace("Title",posttitle);
+	var posttitle = document.title;
+	var tumblrurl="https://www.tumblr.com/share/link?url=uri&name=title";
+	tumblrurl = tumblrurl.replace("title",posttitle);
 	var posturl = window.location.href;
-	var url = encodeURI(tumblrurl.concat(posturl));
+	posturl = posturl.replace(/.*?:\/\//g, "");
+	tumblrurl = tumblrurl.replace("uri",posturl)
+	var url = encodeURI(tumblrurl);
 	window.open(url,'tumblr', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 	return false;
 }
-*/
 function RedditShare(){
-	var redditurl="http://www.reddit.com/submit?url=";
+	var redditurl="https://www.reddit.com/submit?url=";
 	var posturl = window.location.href;
-	var url = redditurl.concat(posturl);
+	var url = encodeURI(redditurl.concat(posturl));
 	window.open(url,'reddit', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 	return false;
 }
@@ -62,27 +73,20 @@ function RedditShare(){
 	<a class="btn btn-default btn-lg" href="#" id="facebook-share" onclick="return FacebookShare()" title="Compartir en Facebook">
 		<i class="fa fa-facebook fa-lg fb"></i>
 	</a>
-Twitter
-<a href="#" id="twitter-share" onclick="return TwitterShare()">
-<img src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Compartir en Google+"/>
-</a>
-Google+
-<a href="#" id="gooplus-share" onclick="return GooglePlusShare()">
-<img src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Compartir en Google+"/>
-</a>
-Meneame
-<a href="#" id="meneame-share" onclick="return MeneameShare()">
-<img src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Compartir en Meneame"/>
-</a>
-<!--
-Tumblr
-<a href="#" id="tumblr-share" onclick="return TumblrShare()">
-<img src="http://platform.tumblr.com/v1/share_4.png" alt="Compartir en Tumblr"/>
-</a>
--->
-Reddit
-<a href="#" id="reddit-share" onclick="return RedditShare()">
-<img src="https://www.reddit.com/static/spreddit5.gif" alt="Compartir en Reddit"/>
-</a>
+	<a class="btn btn-default btn-lg" href="#" id="twitter-share" onclick="return TwitterShare()" title="Compartir en Twitter">
+		<i class="fa fa-twitter fa-lg tw"></i>
+	</a>
+	<a class="btn btn-default btn-lg" href="#" id="googleplus-share" onclick="return GooglePlusShare()" title="Compartir en Google+">
+		<i class="fa fa-google-plus fa-lg google"></i>
+	</a>
+	<a class="btn btn-default btn-lg" href="#" id="meneame-share" onclick="return MeneameShare()" title="Compartir en Meneame">
+		<i class="fa fa-share-alt fa-lg meneame"></i>
+	</a>
+	<a class="btn btn-default btn-lg" href="#" id="tumblr-share" onclick="return TumblrShare()" title="Compartir en Tumblr">
+		<i class="fa fa-tumblr fa-lg tumblr"></i>
+	</a>
+	<a class="btn btn-default btn-lg" href="#" id="reddit-share" onclick="return RedditShare()" title="Compartir en Reddit">
+		<i class="fa fa-reddit fa-lg reddit"></i>
+	</a>
 </body>
 </html> 
